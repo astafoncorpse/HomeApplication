@@ -33,10 +33,10 @@ namespace HomeApplication.Pages
             var deviceList = App.Mapper.Map<HomeApplication.Models.HomeDevice[]>(devicesFromDb);
 
             // Сгруппируем по комнатам
-            //var devicesByRooms = deviceList.GroupBy(d => d.Room).Select(g => new Group<string, HomeDevice>(g.Key, g));
+            var devicesByRooms = deviceList.GroupBy(d => d.Room).Select(g => new Group<string, HomeDevice>(g.Key, g));
 
             // Сохраним
-            //DeviceGroups = new ObservableCollection<Group<string, HomeDevice>>(devicesByRooms);
+            DeviceGroups = new ObservableCollection<Group<string, HomeDevice>>(devicesByRooms);
             BindingContext = this;
 
             base.OnAppearing();
